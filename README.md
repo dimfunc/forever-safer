@@ -1,33 +1,66 @@
-<h1 align="center">
-	Forever Safer
-</h1>
+## AtomicPoll
+This benchmark test tests from three aspects: `normal getting time`, `usize exceeding correction time`, and `id recycling and reuse time`.
 
-<p align="center">
-	This project aims to assist every "Ruster" in facing the troubles of <strong>multi-threaded issues</strong>.
-</p>
+### Normal Getting Time
+**100 Times.**
 
-## Features
-> This is a collection of projects.
+Total time consumption: 21170ns (0ms).
 
-+ Avoid all potential errors and ensure absolute security with minimal `Result<O, E>`.
-+ Without `Tokio`, but also compatible with `Tokio`.
-+ Ensure the security of any event in multi-threaded environments.
-+ Ensure all are `sync` and eliminate `async`.
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/normal_getting_time_100.png)
 
-## Child Projects
-### SegQueue
-> with feature `seg-queue`.
+**1000 Times.**
 
-Improvements to `crossbeam::queue::SegQueue`, supporting `peek` and `contains`.
+Total time consumption: 159859ns (0ms).
 
-Performance Test Results
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/normal_getting_time_1000.png)
 
-### AtomicPoll
-> with feature `atomic-poll`.
+**10000 Times.**
 
-The ID auto increment function that can recycle and reuse IDs.
+Total time consumption: 1300146ns (1ms).
 
-### InstantBus
-> with feature `instant-bus`.
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/normal_getting_time_10000.png)
 
-A broadcast distributor that *sends unilaterally*, *is received by multiple parties*, *discards without receiving*, and *has no historical messages*.
+**100000 Times.**
+
+Total time consumption: 12929758ns (12ms).
+
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/normal_getting_time_100000.png)
+
+### USize Exceeding Correction Time
+The average time spent in **200 tests** is: 244261ns (0ms).
+
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/usize_exceeding_correction_time_200.png)
+
+### ID Recycling and Reuse Time
+**Child Benchmark** Release ID Time.
+
+The average time spent in **200 tests** is: 39951ns (0ms).
+
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/id_recycling_and_reuse_time_release_200.png)
+
+**Child Benchmark** Reuse ID Time.
+
+The average time spent in **200 tests** is: 24933ns (0ms).
+
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/id_recycling_and_reuse_time_reuse_200.png)
+
+
+## InstantBus
+This benchmark test will test the reception delay of different numbers of receivers (core).
+
+### 1 Cores / Receivers
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/instant_bus_1.png)
+### 16 Cores / Receivers
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/instant_bus_16.png)
+### 32 Cores / Receivers
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/instant_bus_32.png)
+### 64 Cores / Receivers
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/instant_bus_64.png)
+### 128 Cores / Receivers
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/instant_bus_128.png)
+### 256 Cores / Receivers
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/instant_bus_256.png)
+### 512 Cores / Receivers
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/instant_bus_512.png)
+### 1024 Cores / Receivers
+![Benchmark](https://raw.githubusercontent.com/dimfunc/forever-safer/benchmarks/images/instant_bus_1024.png)
